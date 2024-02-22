@@ -23,20 +23,22 @@
         </form>
       </header>
       <main>
-
         <section class="location">
-         <h1 class="city" id="searched-city"></h1>
-         <p class="date" id="current-date">Thursday 12:30</p>
+          <h1 class="city" id="searched-city"></h1>
+          <p class="date" id="current-time"></p>
         </section>
 
         <div class="current">
-          <div class="temp" id="current-temperature"><span>°c</span></div>
-          <div class="weather">Sunny</div>
+          <div class="temp" id="current-temperature"></div>
+          <span id="unit">°c</span>
+          <br />
+          <div id="sky-description">Sunny</div>
+          <span class="weather-icon">🌤️</span>
           <div class="conditions">
-            Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
+            Humidity: <strong id="humidity"></strong>, Wind:
+            <strong id="wind-speed"></strong>
           </div>
         </div>
-
       </main>
       <footer>
         <p>
