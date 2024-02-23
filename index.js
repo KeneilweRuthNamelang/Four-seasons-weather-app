@@ -1,34 +1,25 @@
 function updateWeather(response) {
-  let currentTemperatureElement = document.querySelector(
-    "#current-temperature"
-  );
+  let currentTemperatureElement = document.querySelector("#current-temperature");
   let currentTemperature = response.data.temperature.current;
   let cityElement = document.querySelector("#searched-city");
   let descriptionElement = document.querySelector("#sky-description");
   let humidityElement = document.querySelector("#humidity");
   let windSpeedElement = document.querySelector("#wind-speed");
+  let timeElement = document.querySelector("#current-time");
+  let date = new Date (response.data.time *1000);
 
   cityElement.innerHTML = response.data.city;
   currentTemperatureElement.innerHTML = Math.round(currentTemperature);
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed} km/h`;
+  timeElement.innerHTML = formatDate(date);
 }
 
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
-  let day = date.getDay();
-
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-
-  let days = [
+   let days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -37,14 +28,13 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
+  let day = days [date.getDay()];
 
-  let formattedDay = days[day];
-  return `${formattedDay} ${hours}:${minutes}`;
+  if (minutes < 10) {minutes = `0${minutes}`;}
+  if (hours < 10) {hours = `0${hours}`;}
+
+  return `${day} ${hours}:${minutes}`;
 }
-
-let timeElement = document.querySelector("#current-time");
-let date = new Date();
-timeElement.innerHTML = formatDate(currentTime);
 
 function searchCity(city) {
   let apiKey = "117da7948a04330f7fb96d315918tcdo";
