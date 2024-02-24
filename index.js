@@ -51,7 +51,31 @@ function conductSearch(event) {
   searchCity(searchInput.value);
 }
 
+function showForecast() {
+   let days = ["Mon", "Tue", "Wed", "Thu","Fri", "Sat", "Sun"];
+   let forecastHTML = "";
+   
+      days.forEach(function (day) {
+      forecastHTML = forecastHTML + `
+      <div class="forecast-day">
+      <div class="forecast-date">${day}</div>
+      <div class="forecast-icon">🌤️</div>
+      <div class="forecast-temperature">
+      <span class="max-temperature">
+        <strong>15°</strong>
+      </span>
+      <span class="min-temperature">9°</span>
+     </div>
+     </div>
+     `;
+     });
+
+    let forecastElement = document.querySelector("#forecast");
+    forecastElement.innerHTML = forecastHTML;
+   }
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", conductSearch);
 
 searchCity("Welkom");
+showForecast();
