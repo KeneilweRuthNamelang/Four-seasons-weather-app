@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <title>Four seasons weather app</title>
+    <link rel="stylesheet" href="styling.css" />
+  </head>
+  <body>
+    <div class="app-wrap">
+      <header>
+        <form id="search-form">
+          <input
+            type="search"
+            placeholder="Search for a city.."
+            required
+            class="search-input"
+            id="search-input"
+          />
+          <input type="submit" value="Search" class="search-button" />
+        </form>
+      </header>
+      <main>
+        <section >
+         <div class="location">
+           <h1 class="city" id="searched-city"></h1>
+           <p class="date" id="current-time"></p>
+         </div>
+        
+         <div class="current">
+          <span class="temp" id="current-temperature"></span>
+          <span id="unit">°c</span>  </div>
+          <div class="conditions">
+            Humidity: <strong id="humidity"></strong>, Wind:
+            <strong id="wind-speed"></strong>
+          </div>
+
+          <br>
+          <div id="sky-description">Sunny</div>
+          <span id="weather-icon"></span> 
+        </section>
+    
+        <div class="forecast" id="forecast"></div>
+       
+      </main>
+      <footer>
+        <p>
+          This project was coded by
+          <a href="https://github.com/KeneilweRuthNamelang" target="_blank"
+            >Keneilwe Ruth Namelang</a
+          >
+          and is 
+          <a
+            href="https://github.com/KeneilweRuthNamelang/Four-seasons-weather-app"
+            target="_blank"
+          >
+           open-sourced  on GitHub</a
+          >
+          and
+          <a
+            href="https://four-seasons-weather-app.netlify.app/"
+            target="_blank"
+            >hosted on Netlify</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
